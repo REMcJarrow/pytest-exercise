@@ -17,18 +17,19 @@ expectedFollowers = 12
 expectedFollowing = 29
 
 
-#Define the get request and r_body in global frame to avoid unessacary and repetitve lines 
+#Define the get request and r_body in global frame to avoid unecessary and repetitive lines 
 r = requests.get("https://api.github.com/users/6wl", allow_redirects=False)
 r_body = r.json()
 
-def test_status_code():
+class Test_header:
+    def test_status_code(self):
         assert r.status_code == expectedStatusCode
 
-def test_content_type_equals_json():
-    assert r.headers["Content-Type"] == expectedContentType
+    def test_content_type(self):
+        assert r.headers["Content-Type"] == expectedContentType
 
-def test_server():
-    assert r.headers["server"] == expectedServer
+    def test_server(self):
+        assert r.headers["server"] == expectedServer
 
 
 
